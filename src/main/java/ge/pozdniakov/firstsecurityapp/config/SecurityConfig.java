@@ -36,9 +36,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/auth/login", "/auth/registration", "/error").permitAll()
                 .anyRequest().authenticated()
                 .and()
-                .formLogin().loginPage("/auth/login").loginProcessingUrl("/process_login")
+                .formLogin()
+                .loginPage("/auth/login")
+                .loginProcessingUrl("/process_login")
                 .defaultSuccessUrl("/hello", true)
-                .failureUrl("/auth/login?error");
+                .failureUrl("/auth/login?error")
+                .and()
+                .logout()
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/auth/login");
     }
 
     @Bean
