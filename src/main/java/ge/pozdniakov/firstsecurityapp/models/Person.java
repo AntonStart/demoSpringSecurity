@@ -11,8 +11,8 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "username")
+    private String username;
 
     @Column(name = "year_of_birth")
     private int yearOfBirth;
@@ -24,7 +24,7 @@ public class Person {
     }
 
     public Person(String name, int yearOfBirth) {
-        this.name = name;
+        this.username = name;
         this.yearOfBirth = yearOfBirth;
     }
 
@@ -36,12 +36,12 @@ public class Person {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String name) {
+        this.username = name;
     }
 
     public int getYearOfBirth() {
@@ -63,7 +63,7 @@ public class Person {
     @Override
     public String toString() {
         return "Person{" +
-                "name='" + name + '\'' +
+                "name='" + username + '\'' +
                 ", yearOfBirth=" + yearOfBirth +
                 '}';
     }
@@ -73,11 +73,11 @@ public class Person {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Person person = (Person) o;
-        return id == person.id && yearOfBirth == person.yearOfBirth && Objects.equals(name, person.name);
+        return id == person.id && yearOfBirth == person.yearOfBirth && Objects.equals(username, person.username);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, yearOfBirth);
+        return Objects.hash(id, username, yearOfBirth);
     }
 }
