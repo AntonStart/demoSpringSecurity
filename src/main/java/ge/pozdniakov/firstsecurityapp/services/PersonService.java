@@ -27,4 +27,8 @@ public class PersonService {
         personRepository.save(person);
         System.out.println("end save person");
     }
+
+    public void deletePerson(String username) {
+        personRepository.deleteByUsername(username);
+    }
 }
