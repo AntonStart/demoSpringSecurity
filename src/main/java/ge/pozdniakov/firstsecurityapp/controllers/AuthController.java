@@ -43,9 +43,7 @@ public class AuthController {
         personValidator.validate(person, bindingResult);
 
         if (bindingResult.hasErrors()) return "/auth/registration";
-        System.out.println("start register");
         registrationService.register(person);
-        System.out.println("end register");
         return "redirect:/auth/login";
     }
 }
